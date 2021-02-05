@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+  "name": "mavanimes-fixes",
+  "version": "1.0",
+  "description": "Fixes for mavanimes.co. Add a 'next episode' option in select HTMLElement.",
+  "icons": {
+    "48": "mavanimes-48.jpg",
+    "96": "mavanimes-96.jpg"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.mavanimes.co/*"],
+      "js": [
+        "addNextEpisode.js"
+      ]
+    }
+  ]
+}
