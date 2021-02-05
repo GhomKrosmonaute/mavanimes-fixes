@@ -1,0 +1,20 @@
+{
+  "name": "mavanimes-fixes",
+  "version": "1.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/CamilleAbella/mavanimes-fixes.git",
+  "author": "CamilleAbella <camille.abella@hotmail.fr>",
+  "license": "MIT",
+  "prettier": {
+    "semi": false
+  },
+  "scripts": {
+    "zip": "node-zip src mavanimes-fixes.zip",
+    "format": "prettier src --write",
+    "build": "npm run format && npm run zip"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1",
+    "simple-archiver-cli": "^1.0.4"
+  }
+}
