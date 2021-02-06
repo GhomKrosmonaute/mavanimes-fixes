@@ -10,7 +10,7 @@
   "content_scripts": [
     {
       "matches": ["*://*.mavanimes.co/*"],
-      "js": ["addNextEpisode.js"]
+      "js": ["fixes.js"]
     }
   ],
   "browser_action": {
