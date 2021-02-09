@@ -1,7 +1,8 @@
 {
   "manifest_version": 2,
   "name": "mavanimes-fixes",
-  "version": "1.0.3",
+  "version": "1.0.4",
+  "homepage_url": "https://github.com/CamilleAbella/mavanimes-fixes",
   "description": "Fixes for mavanimes.co. Add a 'next episode' option in select HTMLElement.",
   "icons": {
     "48": "mavanimes-48.jpg",
@@ -17,5 +18,6 @@
     "default_icon": "mavanimes-48.jpg",
     "default_title": "mavanimes-fixes",
     "default_popup": "popup.html"
-  }
+  },
+  "permissions": ["tabs"]
 }

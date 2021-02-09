@@ -1,124 +1,25 @@
-<style>
-  * {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    border: 0;
-  }
+<!DOCTYPE html>
 
-  a {
-    text-decoration: none;
-    color: inherit;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-
-  button {
-    cursor: pointer;
-    background-color: black;
-    border: none;
-  }
-
-  #body {
-    color: white;
-    background-color: black;
-    padding: 15px 30px;
-    max-height: 500px;
-    overflow-y: scroll;
-  }
-
-  h1 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-
-  #anime-list > li {
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-    padding: 5px;
-  }
-
-  #anime-list > li:hover {
-    background-color: #222;
-  }
-
-  #panel {
-    display: flex;
-  }
-
-  #new-anime-name {
-    flex-grow: 1;
-    background-color: #333;
-    color: #777;
-    padding: 5px;
-  }
-</style>
-
-<div id="body">
-  <a href="http://www.mavanimes.co/"> <h1>mavanimes.co</h1> </a>
-  <ul id="anime-list"></ul>
-  <div id="panel">
-    <input type="text" id="new-anime-name" />
-    <button
-      type="button"
-      onclick="add(document.getElementById('new-anime-name').value)"
-    >
-      ✅
-    </button>
-    <button type="button" onclick="refresh()">🔄</button>
-  </div>
-</div>
-
-<script>
-  function getList() {
-    return JSON.parse(localStorage.getItem("anime-list") ?? "[]")
-  }
-
-  function setList(list) {
-    localStorage.setItem("anime-list", JSON.stringify(list))
-    refresh()
-  }
-
-  function refresh() {
-    const $list = document.getElementById("anime-list")
-    const list = getList()
-    $list.innerHTML = ""
-    for (const anime of list) {
-      const $anime = document.createElement("li")
-      $anime.innerHTML = `
-        <a href="${anime.url}">${anime.name}</a>
-        <span>
-          <span onclick="remove('${anime.name}')">❌</span>
-          <span onclick="save('${anime.name}')">💾</span>
-        </span>`
-      $list.appendChild($anime)
-    }
-  }
-
-  function save(name) {
-    const list = getList()
-    const anime = list.find((anime) => anime.name === name)
-    anime.url = location.href
-    setList(list)
-  }
-
-  function remove(name) {
-    const list = getList()
-    const index = list.findIndex((anime) => anime.name === name)
-    list.splice(index, 1)
-    setList(list)
-  }
-
-  function add(name) {
-    const list = getList()
-    list.push({
-      name,
-      url: location.href,
-    })
-    setList(list)
-  }
-
-  refresh()
-</script>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="popup.css" />
+    <script defer src="popup.js"></script>
+  </head>
+  <body>
+    <a href="http://www.mavanimes.co/">
+      <h1>mavanimes.co</h1>
+    </a>
+    <ul id="anime-list"></ul>
+    <div id="panel">
+      <input type="text" id="new-anime-name" />
+      <button
+        type="button"
+        onclick="add(document.getElementById('new-anime-name').value)"
+      >
+        ✅
+      </button>
+      <button type="button" onclick="refresh()">🔄</button>
+    </div>
+  </body>
+</html>
