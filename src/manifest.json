@@ -19,5 +19,5 @@
     "default_title": "mavanimes-fixes",
     "default_popup": "popup.html"
   },
-  "permissions": ["tabs"]
+  "permissions": ["tabs", "storage"]
 }
