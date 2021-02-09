@@ -1,53 +1,40 @@
-async function getList() {
-  return (await browser.storage.local.get("anime-list"))["anime-list"] ?? []
-}
-
-async function setList(list) {
-  await browser.storage.local.set({ "anime-list": list })
-  await refresh()
-}
-
 async function refresh() {
   const $list = document.getElementById("anime-list")
-  const list = await getList()
+  const list = await get()
   $list.innerHTML = ""
-  for (const anime of list) {
+  for (const anime of Object.keys(list)) {
+    const url = list[anime]
     const $anime = document.createElement("li")
     $anime.innerHTML = `
-        <a href="${anime.url}">${anime.name}</a>
+        <a href="${url}">${anime}</a>
         <span>
-          <span onclick="remove('${anime.name}')">❌</span>
-          <span onclick="save('${anime.name}')">💾</span>
+          <span onclick="remove('${anime}')">❌</span>
+          <span onclick="add('${anime}')">💾</span>
         </span>`
     $list.appendChild($anime)
   }
 }
 
-async function save(name) {
-  const list = await getList()
-  const anime = list.find((anime) => anime.name === name)
-  anime.url = await getURL()
-  await setList(list)
-}
-
-async function remove(name) {
-  const list = await getList()
-  const index = list.findIndex((anime) => anime.name === name)
-  list.splice(index, 1)
-  await setList(list)
-}
-
 async function add(name) {
-  const list = await getList()
-  list.push({
-    name,
-    url: await getURL(),
-  })
-  await setList(list)
+  return set({ [name]: await getURL() })
 }
 
 async function getURL() {
   return (await browser.tabs.getCurrent()).url
+}
+
+function get() {
+  return browser.storage.local.get()
+}
+
+async function set(object) {
+  await browser.storage.local.set(object)
+  await refresh()
+}
+
+async function remove(name) {
+  await browser.storage.local.remove(name)
+  await refresh()
 }
 
 refresh().catch()
