@@ -1,13 +1,19 @@
 {
   "manifest_version": 2,
   "name": "mavanimes-fixes",
-  "version": "1.0.4",
+  "author": "Ghom",
+  "developer": {
+    "name": "Ghom",
+    "url": "https://github.com/CamilleAbella"
+  },
+  "version": "1.0.5",
   "homepage_url": "https://github.com/CamilleAbella/mavanimes-fixes",
-  "description": "Fixes for mavanimes.co. Add a 'next episode' option in select HTMLElement.",
+  "description": "Cette extension va vous épauler à la conquête des meilleurs animes sur le site mavanimes.co !",
   "icons": {
     "48": "mavanimes-48.jpg",
     "96": "mavanimes-96.jpg"
   },
+  "content_security_policy": "default-src 'self'",
   "content_scripts": [
     {
       "matches": ["*://*.mavanimes.co/*"],
@@ -19,5 +25,10 @@
     "default_title": "mavanimes-fixes",
     "default_popup": "popup.html"
   },
-  "permissions": ["tabs", "storage"]
+  "permissions": ["tabs", "storage"],
+  "applications": {
+    "gecko": {
+      "id": "mavanimes-fixes@ghom.fix"
+    }
+  }
 }

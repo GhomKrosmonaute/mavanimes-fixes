@@ -1,6 +1,6 @@
 {
   "name": "mavanimes-fixes",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "index.js",
   "repository": "https://github.com/CamilleAbella/mavanimes-fixes.git",
   "author": "CamilleAbella <camille.abella@hotmail.fr>",
@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@types/firefox-webext-browser": "^82.0.0",
-    "prettier": "^2.2.1",
-    "simple-archiver-cli": "^1.0.4"
+    "simple-archiver-cli": "^1.0.4",
+    "prettier": "^2.2.1"
   }
 }

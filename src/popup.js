@@ -8,8 +8,8 @@ async function refresh() {
     $anime.innerHTML = `
         <a href="${url}">${anime}</a>
         <span>
-          <span onclick="remove('${anime}')">❌</span>
-          <span onclick="add('${anime}')">💾</span>
+          <span onclick="remove('${anime}').then()">❌</span>
+          <span onclick="add('${anime}').then()">💾</span>
         </span>`
     $list.appendChild($anime)
   }
@@ -24,16 +24,16 @@ async function getURL() {
 }
 
 function get() {
-  return browser.storage.local.get()
+  return browser.storage.sync.get()
 }
 
 async function set(object) {
-  await browser.storage.local.set(object)
+  await browser.storage.sync.set(object)
   await refresh()
 }
 
 async function remove(name) {
-  await browser.storage.local.remove(name)
+  await browser.storage.sync.remove(name)
   await refresh()
 }
 
