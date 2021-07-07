@@ -32,25 +32,3 @@ h1 {
   font-size: 20px;
   margin-bottom: 10px;
 }
-
-#anime-list > li {
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
-  padding: 5px;
-}
-
-#anime-list > li:hover {
-  background-color: #222;
-}
-
-#panel {
-  display: flex;
-}
-
-#new-anime-name {
-  flex-grow: 1;
-  background-color: #333;
-  color: #777;
-  padding: 5px;
-}

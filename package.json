@@ -9,13 +9,16 @@
     "semi": false
   },
   "scripts": {
-    "zip": "node-zip src mavanimes-fixes.zip",
-    "format": "prettier src --write",
-    "build": "npm run format && npm run zip"
+    "zip": "node-zip dist anime-bookmark.zip",
+    "format": "prettier src dist --write",
+    "build": "tsc && npm run format && npm run zip"
   },
   "devDependencies": {
     "@types/firefox-webext-browser": "^82.0.0",
-    "simple-archiver-cli": "^1.0.4",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "simple-archiver-cli": "^1.0.4"
+  },
+  "dependencies": {
+    "typescript": "^4.3.5"
   }
 }

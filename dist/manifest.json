@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "mavanimes-fixes",
+  "name": "anime-bookmark",
   "author": "Ghom",
   "developer": {
     "name": "Ghom",
@@ -10,22 +10,21 @@
   "homepage_url": "https://github.com/CamilleAbella/mavanimes-fixes",
   "description": "Cette extension va vous épauler à la conquête des meilleurs animes sur le site mavanimes.co !",
   "icons": {
-    "48": "mavanimes-48.jpg",
-    "96": "mavanimes-96.jpg"
+    "48": "icon-48.jpg",
+    "96": "icon-96.jpg"
   },
   "content_security_policy": "default-src 'self'",
   "content_scripts": [
     {
       "matches": ["*://*.mavanimes.co/*"],
-      "js": ["fixes.js"]
+      "js": ["bookmark.js"]
     }
   ],
   "browser_action": {
-    "default_icon": "mavanimes-48.jpg",
-    "default_title": "mavanimes-fixes",
+    "default_icon": "icon-48.jpg",
+    "default_title": "anime-bookmark",
     "default_popup": "popup.html"
   },
-  "permissions": ["tabs", "storage"],
   "applications": {
     "gecko": {
       "id": "mavanimes-fixes@ghom.fix"
